@@ -64,29 +64,24 @@ Explanation 2:
  Pick element 2 from end as this is the maximum we can get
 */
 public class PickFromBothSides {
-    public static int findSum(int[] A,int l,int r){
-        int len=A.length;
-        int sum=0;
-        for(int i=0;i<l;i++){
-            sum+=A[i];
-        }
-        for(int i=len-1;i>=(len-r);i--){
-            sum+=A[i];
-        }
-        return sum;
-    }
-
     public static int solve(int[] A, int B) {
-        int max=Integer.MAX_VALUE * -1;
-        int curIndex=0;
+        
+        int curIndex=B-1;
+        int sum=0;
+        
+        for(int i=0;i<B;i++){
+            sum+=A[i];
+        }
+        
+        int max=sum;
+        while(curIndex>=0){
+            
+            sum-=A[curIndex];
+            sum+=A[A.length - (B - curIndex)];
+            
+            max=Math.max(max,sum);
 
-        while(curIndex<=(B/2)){
-            int rightSum=findSum(A,curIndex,B-curIndex);
-            int leftSum=findSum(A,B-curIndex,curIndex);
-            if(rightSum>max)    max=rightSum;
-            if(leftSum>max)    max=leftSum;
-
-            curIndex++;
+            curIndex--;
         }
         return max;
     }
