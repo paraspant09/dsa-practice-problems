@@ -64,7 +64,7 @@ public class MinLight2Activate {
         int prev=0;
         int i;
 
-        if( A.length < B){
+        if( A.length <= B){
             for(int k=0;k<A.length;k++){
                 if(A[k]==1)
                     return 1;
