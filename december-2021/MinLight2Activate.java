@@ -90,10 +90,12 @@ public class MinLight2Activate {
         
         if(prev+B-1 >= A.length-1)   return num;
 
-        if((prev+B-1 < A.length ) && A.length <= i){
-            while(i-->prev){
-                if(i<A.length && A[i]==1)
+        if( prev+B-1 < A.length-1 ){
+            i=A.length-1;
+            while(i>prev){
+                if(A[i]==1)
                     return num+1;
+                i--;
             }
             return -1;
         }
