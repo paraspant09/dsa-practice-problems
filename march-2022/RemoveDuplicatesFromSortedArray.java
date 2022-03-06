@@ -59,7 +59,7 @@ public class RemoveDuplicatesFromSortedArray {
 		while(i<a.size() && j<a.size()){
 			if(!a.get(i).equals(a.get(j))){
 				i++;
-				a.add(i,a.get(j));
+				a.set(i,a.get(j));
 			}
 			j++;
 		}
